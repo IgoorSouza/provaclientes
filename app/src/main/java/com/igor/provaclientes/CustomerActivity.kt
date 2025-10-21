@@ -29,7 +29,10 @@ class CustomerActivity : ComponentActivity() {
         )
 
         setContent {
-            CustomerDetailScreen(customer = customer)
+            CustomerScreen(
+                customer = customer,
+                onBackClick = { finish() }
+            )
         }
     }
 }

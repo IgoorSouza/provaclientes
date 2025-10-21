@@ -27,6 +27,7 @@ suspend fun getCustomers(query: String? = null): CustomersResponse {
     val response = apiClient.get("https://extensaoiii-api.onrender.com/customer") {
         contentType(ContentType.Application.Json)
         header("Authorization", "Bearer $token")
+        parameter("pageSize", 999)
         query?.let { value -> parameter("name", value) }
     }
 
