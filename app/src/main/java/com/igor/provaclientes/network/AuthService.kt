@@ -31,5 +31,13 @@ suspend fun loginUser(email: String, password: String) {
         setBody(AuthRequest(email, password))
     }
 
+    if (response.status == HttpStatusCode.NotFound) {
+        throw Exception("Usuário não encontrado.")
+    }
+
+    if (response.status == HttpStatusCode.Unauthorized) {
+        throw Exception("Senha incorreta.")
+    }
+
     TokenStore.token = response.body<AuthResponse>().token
 }

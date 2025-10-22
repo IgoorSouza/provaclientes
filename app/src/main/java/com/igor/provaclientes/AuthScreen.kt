@@ -129,7 +129,7 @@ fun AuthScreen(onAuthSuccess: () -> Unit) {
                                 loginUser(email, password)
                                 onAuthSuccess()
                             } catch (e: Exception) {
-                                snackbarHostState.showSnackbar("Erro de conexão: ${e.message}")
+                                snackbarHostState.showSnackbar("Erro: ${e.message}")
                             } finally {
                                 isLoading = false
                             }
